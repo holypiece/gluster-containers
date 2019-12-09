@@ -12,11 +12,14 @@ LABEL name="$REPO/$NAME" \
       version="$VERSION" \
       release="$RELEASE.$DISTTAG" \
       architecture="$ARCH" \
+      vendor="Red Hat, Inc" \
       summary="$DESC" \
       usage="docker run -d -P --tmpfs /run --tmpfs /tmp -v /sys/fs/cgroup:/sys/fs/cgroup $REPO/$NAME" \
       io.k8s.display-name="$DESC" \
       io.k8s.description="GlusterFS is a distributed and scalable network filesystem. Using common, off-the-shelf hardware you can create large, distributed storage solutions for media streaming, data analysis, and other data- and bandwidth-intensive tasks." \
-      credits="forked from https://github.com/gluster/gluster-containers"
+      io.openshift.tags="gluster,glusterfs,gluster-fedora" \
+      com.redhat.component="$NAME" \
+      maintainer="Jose A. Rivera <jarrpa@redhat.com>, Humble Chirammal <hchiramm@redhat.com>"
 
 VOLUME [ "/sys/fs/cgroup/" ]
 
