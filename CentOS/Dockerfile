@@ -34,11 +34,18 @@ yum --setopt=tsflags=nodocs -y install rsync  && \
 yum --setopt=tsflags=nodocs -y install tar  && \
 yum --setopt=tsflags=nodocs -y install cronie  && \
 yum --setopt=tsflags=nodocs -y install xfsprogs  && \
-yum --setopt=tsflags=nodocs -y install glusterfs  && \
-yum --setopt=tsflags=nodocs -y install glusterfs-server  && \
-yum --setopt=tsflags=nodocs -y install glusterfs-rdma  && \
-yum --setopt=tsflags=nodocs -y install gluster-block  && \
-yum --setopt=tsflags=nodocs -y install glusterfs-geo-replication && yum clean all && \
+yum --setopt=tsflags=nodocs -y install http://mirror.centos.org/centos/7/storage/x86_64/gluster-7/glusterfs-libs-7.0-1.el7.x86_64.rpm && \
+yum --setopt=tsflags=nodocs -y install http://mirror.centos.org/centos/7/storage/x86_64/gluster-7/glusterfs-client-xlators-7.0-1.el7.x86_64.rpm && \
+yum --setopt=tsflags=nodocs -y install http://mirror.centos.org/centos/7/storage/x86_64/gluster-7/glusterfs-7.0-1.el7.x86_64.rpm && \
+yum --setopt=tsflags=nodocs -y install http://mirror.centos.org/centos/7/storage/x86_64/gluster-7/glusterfs-api-7.0-1.el7.x86_64.rpm && \
+yum --setopt=tsflags=nodocs -y install http://mirror.centos.org/centos/7/storage/x86_64/gluster-7/glusterfs-fuse-7.0-1.el7.x86_64.rpm && \
+yum --setopt=tsflags=nodocs -y install http://mirror.centos.org/centos/7/storage/x86_64/gluster-7/glusterfs-cli-7.0-1.el7.x86_64.rpm && \
+yum --setopt=tsflags=nodocs -y install http://mirror.centos.org/centos/7/storage/x86_64/gluster-7/python2-gluster-7.0-1.el7.x86_64.rpm && \
+yum --setopt=tsflags=nodocs -y install http://mirror.centos.org/centos/7/storage/x86_64/gluster-7/python2-glusterfs-api-1.1-1.el7.noarch.rpm && \
+yum --setopt=tsflags=nodocs -y install http://mirror.centos.org/centos/7/storage/x86_64/gluster-7/glusterfs-server-7.0-1.el7.x86_64.rpm && \
+yum --setopt=tsflags=nodocs -y install http://mirror.centos.org/centos/7/storage/x86_64/gluster-7/glusterfs-rdma-7.0-1.el7.x86_64.rpm && \
+yum --setopt=tsflags=nodocs -y install http://mirror.centos.org/centos/7/storage/x86_64/gluster-7/gluster-block-0.3-2.el7.x86_64.rpm && \
+yum --setopt=tsflags=nodocs -y install http://mirror.centos.org/centos/7/storage/x86_64/gluster-7/glusterfs-geo-replication-7.0-1.el7.x86_64.rpm && yum clean all && \
 sed -i '/Port 22/c\Port 2222' /etc/ssh/sshd_config && \
 sed -i 's/Requires\=rpcbind\.service//g' /usr/lib/systemd/system/glusterd.service && \
 sed -i 's/rpcbind\.service/gluster-setup\.service/g' /usr/lib/systemd/system/glusterd.service && \
